@@ -36,7 +36,8 @@ foreach($demod_types as $demod_type){
 }
 
 $demods = $demods_deep;
-
+$total_channels = 0;
+$total_sources = 0;
 ?>
 <h3>Active Channelizers</h3>
 <table border=1>
@@ -58,7 +59,9 @@ foreach($channelizers as $uuid => $c){
 		<td><?=$c['channel_count'];?></td>
 		<td><?=$c['source_count'];?></td>
 		<td>
-		<?php
+<?php
+		$total_channels += $c['channel_count'];
+		$total_sources += $c['source_count'];
 			foreach($c['sources'] as $key => $source){
 				?>(<?=$source[0];?>:<?=$source[1];?>)<?php
 			}
@@ -69,6 +72,7 @@ foreach($channelizers as $uuid => $c){
 <?php
 }
 ?>
+	<tr><td colspan=5>Total</td><td><?=$total_channels;?></td><td><?=$total_sources;?></td><td></td></tr>
 </table>
 <br /><br />
 <style>
