@@ -1,0 +1,3 @@
+[submodule "lib/waterfall"]
+	path = lib/waterfall
+	url = git@github.com:MattMills/waterfall.git
